@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15-618 Project: DAG Scheduler</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>DAG Scheduler</h1>
+            <h3>High-Performance Task Scheduling for Heterogeneous Systems</h3>
+            <p>Jingxuan ZHANG, Peiran HOU</p>
+            <span class="course-tag">CMU 15-618</span>
+        </div>
+    </header>
+
+    <nav class="tab-container">
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'design')">Design</button>
+            <button class="tab-link" onclick="openTab(event, 'report')">Report</button>
+            <button class="tab-link" onclick="openTab(event, 'demo')">Demo</button>
+        </div>
+    </nav>
+
+    <main class="content-wrapper">
+        <div id="overview" class="tab-content active">
+            <h2>Summary</h2>
+            We propose to develop an intelligent Task Scheduler for Directed Acyclic Graphs (DAGs) that optimizes execution across heterogeneous CPU and GPU resources. The core objective is to minimize the total completion time  of complex task sets by balancing computational speedups against data transfer overheads. We will implement a custom cost model that estimates task duration based on computational workload, data size, CPU/GPU processing rates, and PCIe bandwidth to make informed scheduling decisions.
+            <h2>Background</h2>
+            <p>
+                DAGs are the standard abstraction for managing task dependencies in high-performance computing. 
+                They are essential in <strong>Data Analytics</strong> (e.g., Spark), <strong>Model Training Pipeline</strong> 
+                , and <strong>Scientific Computing</strong> for managing large-scale simulation workflows. By modeling execution as a DAG, systems can identify 
+                independent tasks that can be executed in parallel while respecting strict synchronization constraints.
+            </p>
+            <p>
+                Modern performance gains rely on combining the low-latency control logic of <strong>CPUs</strong> 
+                with the massive data-parallel throughput of <strong>GPUs</strong>. Heterogeneous systems 
+                provide superior <strong>Performance-per-Watt</strong> and higher peak TFLOPS, but they 
+                introduce a "communication vs. computation" trade-off. An intelligent scheduler is required 
+                to decide when the acceleration on a GPU outweighs the PCIe transfer latency
+                of moving data from CPU memory.
+            </p>
+            <h2>Feature</h2>
+            <p></p>
+            <div class="feature-grid">
+                <div class="card">Work-Stealing</div>
+                <div class="card">Task Granularity</div>
+                <div class="card">Device Strategy</div>
+            </div>
+        </div>
+
+        <div id="design" class="tab-content">
+            <h2>System Design</h2>
+            <p>Architecture</p>
+        </div>
+
+        <div id="report" class="tab-content">
+            <h2>Proposal</h2>
+            <h2>Milestone Report</h2>
+            <h2>Final Report</h2>
+        </div>
+
+        <div id="demo" class="tab-content">
+            <h2>Demo
+            <p></p>
+        </div>
+    </main>
+
+    <script src="script/script.js"></script>
+</body>
+</html>
