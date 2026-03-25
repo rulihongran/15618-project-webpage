@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #2563eb;
+    --primary-color: #e68c50;
     --bg-color: #f8fafc;
     --text-color: #1e293b;
     --card-bg: #ffffff;
@@ -17,7 +17,8 @@ body {
 .hero {
     position: relative;
     height: 400px;
-    background: url('https://hyperpc.ae/images/support/articles/what-is-server-why-they-used/what-is-server-why-they-used-banner.jpg') center/cover no-repeat;
+    background: url('https://d1fdloi71mui9q.cloudfront.net/BV1U5TQyTKW9cnt2pbyO_2f788d26356422a5197d3d779143afe9') center no-repeat;
+    background-size: 40% auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,7 +29,7 @@ body {
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(15, 23, 42, 0.6); /* 深色遮罩 */
+    background: rgba(15, 23, 42, 0.7);
 }
 
 .hero-content {
@@ -107,4 +108,24 @@ body {
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
     text-align: center;
     border: 1px solid #e2e8f0;
+}
+
+.architecture {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.arch-img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.arch-desc {
+    max-width: 50%;
+}
+
+.arch-desc p {
+    margin: 8px 0;
 }
