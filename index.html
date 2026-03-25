@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <header class="hero">
@@ -31,19 +33,25 @@
     <main class="content-wrapper">
         <div id="overview" class="tab-content active">
             <h2>Summary</h2>
-            We propose to develop an intelligent Task Scheduler for Directed Acyclic Graphs (DAGs) that optimizes execution across heterogeneous CPU and GPU resources. The core objective is to minimize the total completion time  of complex task sets by balancing computational speedups against data transfer overheads. We will implement a custom cost model that estimates task duration based on computational workload, data size, CPU/GPU processing rates, and PCIe bandwidth to make informed scheduling decisions.
+            We propose to develop an intelligent Task Scheduler for Directed Acyclic Graphs (DAGs) that optimizes
+            execution across heterogeneous CPU and GPU resources. The core objective is to minimize the total completion
+            time of complex task sets by balancing computational speedups against data transfer overheads. We will
+            implement a custom cost model that estimates task duration based on computational workload, data size,
+            CPU/GPU processing rates, and PCIe bandwidth to make informed scheduling decisions.
             <h2>Background</h2>
             <p>
-                DAGs are the standard abstraction for managing task dependencies in high-performance computing. 
-                They are essential in <strong>Data Analytics</strong> (e.g., Spark), <strong>Model Training Pipeline</strong> 
-                , and <strong>Scientific Computing</strong> for managing large-scale simulation workflows. By modeling execution as a DAG, systems can identify 
+                DAGs are the standard abstraction for managing task dependencies in high-performance computing.
+                They are essential in <strong>Data Analytics</strong> (e.g., Spark), <strong>Model Training
+                    Pipeline</strong>
+                , and <strong>Scientific Computing</strong> for managing large-scale simulation workflows. By modeling
+                execution as a DAG, systems can identify
                 independent tasks that can be executed in parallel while respecting strict synchronization constraints.
             </p>
             <p>
-                Modern performance gains rely on combining the low-latency control logic of <strong>CPUs</strong> 
-                with the massive data-parallel throughput of <strong>GPUs</strong>. Heterogeneous systems 
-                provide superior <strong>Performance-per-Watt</strong> and higher peak TFLOPS, but they 
-                introduce a "communication vs. computation" trade-off. An intelligent scheduler is required 
+                Modern performance gains rely on combining the low-latency control logic of <strong>CPUs</strong>
+                with the massive data-parallel throughput of <strong>GPUs</strong>. Heterogeneous systems
+                provide superior <strong>Performance-per-Watt</strong> and higher peak TFLOPS, but they
+                introduce a "communication vs. computation" trade-off. An intelligent scheduler is required
                 to decide when the acceleration on a GPU outweighs the PCIe transfer latency
                 of moving data from CPU memory.
             </p>
@@ -57,18 +65,24 @@
             <h2>Architecture</h2>
             <div class="architecture">
                 <img src="./image/system-architecture.png" class="arch-img">
-            
+
                 <div class="arch-desc">
                     <br>
                     <p><strong>Scheduler:</strong> determines the execution device based on current workload.</p>
-                    <p><strong>DependencyManager:</strong> Dynamically decrements the in-degree of tasks at runtime; triggers a task to be "Ready" once its in-degree reaches zero.</p>
-                    <p><strong>SchedulingPolicy:</strong> implements the scheduling policy to determine the execution device for each task.</p>
+                    <p><strong>DependencyManager:</strong> Dynamically decrements the in-degree of tasks at runtime;
+                        triggers a task to be "Ready" once its in-degree reaches zero.</p>
+                    <p><strong>SchedulingPolicy:</strong> implements the scheduling policy to determine the execution
+                        device for each task.</p>
                     <br>
-                    <p><strong>ExecutionEngine:</strong> The physical executor; wraps tasks into std::future objects to run within the CPU thread pool or GPU streams.</p>
-                    <p><strong>CPUThreadPool:</strong> manages a pool of CPU threads to execute tasks concurrently on the CPU.</p>
-                    <p><strong>SystemRAM:</strong> manages the allocation and deallocation of memory (RAM) for tasks running on the CPU.</p>
+                    <p><strong>ExecutionEngine:</strong> The physical executor; wraps tasks into std::future objects to
+                        run within the CPU thread pool or GPU streams.</p>
+                    <p><strong>CPUThreadPool:</strong> manages a pool of CPU threads to execute tasks concurrently on
+                        the CPU.</p>
+                    <p><strong>SystemRAM:</strong> manages the allocation and deallocation of memory (RAM) for tasks
+                        running on the CPU.</p>
                     <p><strong>MemoryPool:</strong> re-allocates large blocks of video memory (VRAM).</p>
-                    <p><strong>StreamManager:</strong> manages GPU streams to enable concurrent execution of multiple tasks on the GPU.</p>
+                    <p><strong>StreamManager:</strong> manages GPU streams to enable concurrent execution of multiple
+                        tasks on the GPU.</p>
                 </div>
             </div>
         </div>
@@ -79,17 +93,34 @@
         </div>
 
         <div id="report" class="tab-content">
-            <h2>Proposal</h2>
-            <h2>Milestone Report</h2>
-            <h2>Final Report</h2>
+            <h2>Project Documents</h2>
+            <div class="report-grid">
+                <div class="report-card">
+                    <h3>Proposal</h3>
+                    <div class="report-actions">
+                        <a class="report-button" href="pdf/proposal.pdf" target="_blank"
+                            rel="noopener noreferrer">Preview PDF</a>
+                        <a class="report-button secondary" href="pdf/proposal.pdf" download>Download</a>
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <h3>Milestone Report</h3>
+                </div>
+
+                <div class="report-card">
+                    <h3>Final Report</h3>
+                </div>
+            </div>
         </div>
 
         <div id="demo" class="tab-content">
             <h2>Demo
-            <p></p>
+                <p></p>
         </div>
     </main>
 
     <script src="script/script.js"></script>
 </body>
+
 </html>
