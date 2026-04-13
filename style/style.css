@@ -17,7 +17,7 @@ body {
 .hero {
     position: relative;
     height: 400px;
-    background: url('https://d1fdloi71mui9q.cloudfront.net/BV1U5TQyTKW9cnt2pbyO_2f788d26356422a5197d3d779143afe9') center no-repeat;
+    background: url('../image/scotty.png') center no-repeat;
     background-size: 40% auto;
     display: flex;
     align-items: center;
